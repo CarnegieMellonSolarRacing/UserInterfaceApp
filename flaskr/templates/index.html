@@ -1,0 +1,20 @@
+<p id='battery life'></p>
+cmsr
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+//socket.io setup code from https://flask-socketio.readthedocs.io/en/latest/
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    var batteryLife;
+    socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+    });
+    socket.on('test',function(message){
+        //document.getElementById('test').innerHTML = message;
+    });
+
+    socket.on('update battery life', function(data){
+        console.log(data);
+        batteryLife = JSON.parse(JSON.stringify(data));
+        document.getElementById('battery life').innerHTML = "Battery Life: "+batteryLife;
+    });
+</script>
