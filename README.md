@@ -1,6 +1,6 @@
 Dashboard
 
-How to run:
+How to run: </br>
   cd to folder that contains flaskr folder </br>
   set FLASK_APP=flaskr </br>
   set FLASK_ENV=development </br> 
